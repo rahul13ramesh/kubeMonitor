@@ -1,0 +1,22 @@
+{
+    "832fe43b11159e0db37bae628fd0d212a23eab3ab2b4396cd8d5d42a140f1517": {
+        "gpuMem": {
+            "2": 4415.0
+        },
+        "gpuUsed": [
+            2
+        ],
+        "cpuUtil": 114.0,
+        "memUtil": 5.6
+    },
+    "4201f12d3ab8d336318886633eee0c4100cc1d1cb900f312cb99677f2c6ef821": {
+        "gpuMem": {
+            "0": 276.0
+        },
+        "gpuUsed": [
+            0
+        ],
+        "cpuUtil": 99.9,
+        "memUtil": 2.7
+    }
+}

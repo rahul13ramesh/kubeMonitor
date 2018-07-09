@@ -1,0 +1,40 @@
+{
+    "pods": [
+        {
+            "podName": "sonicdarla",
+            "time": "2h",
+            "namespace": "nirupan",
+            "status": "Running"
+        },
+        {
+            "podName": "sonicppo2",
+            "time": "2h",
+            "namespace": "nirupan",
+            "status": "Running"
+        },
+        {
+            "podName": "train",
+            "time": "1m",
+            "namespace": "nithyam",
+            "status": "Error"
+        },
+        {
+            "podName": "dl",
+            "time": "2d",
+            "namespace": "pavanr",
+            "status": "Running"
+        },
+        {
+            "podName": "dr",
+            "time": "2d",
+            "namespace": "pavanr",
+            "status": "Running"
+        },
+        {
+            "podName": "test1",
+            "time": "1h",
+            "namespace": "rahulr",
+            "status": "Running"
+        }
+    ]
+}
