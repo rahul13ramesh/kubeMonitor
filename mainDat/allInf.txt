@@ -1,0 +1,165 @@
+{
+    "erdos": {
+        "maxGpu": 4.0,
+        "maxCpu": 32.0,
+        "maxMem": 251.79745483398438,
+        "reqCpu": 8.0,
+        "reqCpuPer": 25.0,
+        "reqMem": 35.0,
+        "reqMemPer": 13.0,
+        "jobs": {
+            "7c129e067f4e301878bf4014252dde408278ff93da38f5592211428f53410b50": {
+                "namespace": "rahulr-namespace",
+                "podname": "test1",
+                "cpuReq": 1.0,
+                "cpuReqp": 3.0,
+                "memReq": 15.0,
+                "memReqp": 5.0
+            },
+            "832fe43b11159e0db37bae628fd0d212a23eab3ab2b4396cd8d5d42a140f1517": {
+                "namespace": "rahulr-namespace",
+                "podname": "test2",
+                "cpuReq": 7.0,
+                "cpuReqp": 21.0,
+                "memReq": 20.0,
+                "memReqp": 7.0
+            }
+        }
+    },
+    "euclid": {
+        "maxGpu": 4.0,
+        "maxCpu": 40.0,
+        "maxMem": 251.79065322875977,
+        "reqCpu": 0.0,
+        "reqCpuPer": 0.0,
+        "reqMem": 0.0,
+        "reqMemPer": 0.0,
+        "jobs": {}
+    },
+    "bellman": {
+        "maxGpu": 4.0,
+        "maxCpu": 40.0,
+        "maxMem": 503.7953071594238,
+        "reqCpu": 0.0,
+        "reqCpuPer": 0.0,
+        "reqMem": 0.0,
+        "reqMemPer": 0.0,
+        "jobs": {}
+    },
+    "markov": {
+        "maxGpu": 2.0,
+        "maxCpu": 16.0,
+        "maxMem": 62.81203842163086,
+        "reqCpu": 0.0,
+        "reqCpuPer": 0.0,
+        "reqMem": 0.0,
+        "reqMemPer": 0.0,
+        "jobs": {}
+    },
+    "ramanujam": {
+        "maxGpu": 3.0,
+        "maxCpu": 12.0,
+        "maxMem": 125.88337707519531,
+        "reqCpu": 0.0,
+        "reqCpuPer": 0.0,
+        "reqMem": 0.0,
+        "reqMemPer": 0.0,
+        "jobs": {}
+    },
+    "shannon": {
+        "maxGpu": 4.0,
+        "maxCpu": 40.0,
+        "maxMem": 251.795166015625,
+        "reqCpu": 2.0,
+        "reqCpuPer": 5.0,
+        "reqMem": 16.0,
+        "reqMemPer": 6.0,
+        "jobs": {
+            "4d9cd2297240255e52c62e7a42098d6348e4c1710b856b24c57a16746a362d18": {
+                "namespace": "nirupan-namespace",
+                "podname": "sonicdarla",
+                "cpuReq": 2.0,
+                "cpuReqp": 5.0,
+                "memReq": 16.0,
+                "memReqp": 6.0
+            }
+        }
+    },
+    "boole": {
+        "maxGpu": 2.0,
+        "maxCpu": 16.0,
+        "maxMem": 62.8120002746582,
+        "reqCpu": 1.0,
+        "reqCpuPer": 6.0,
+        "reqMem": 25.0,
+        "reqMemPer": 39.0,
+        "jobs": {
+            "82c16b8df3e4ee7b0b93d21ca9812352ae1e081d37fe0b092474c9230ab81a4e": {
+                "namespace": "pavanr-namespace",
+                "podname": "dl",
+                "cpuReq": 1.0,
+                "cpuReqp": 6.0,
+                "memReq": 25.0,
+                "memReqp": 39.0
+            }
+        }
+    },
+    "panini": {
+        "maxGpu": 2.0,
+        "maxCpu": 16.0,
+        "maxMem": 62.81199264526367,
+        "reqCpu": 0.0,
+        "reqCpuPer": 0.0,
+        "reqMem": 0.0,
+        "reqMemPer": 0.0,
+        "jobs": {}
+    },
+    "lamport": {
+        "maxGpu": 4.0,
+        "maxCpu": 40.0,
+        "maxMem": 97.05015563964844,
+        "reqCpu": 2.0,
+        "reqCpuPer": 5.0,
+        "reqMem": 16.0,
+        "reqMemPer": 6.0,
+        "jobs": {
+            "8c38897002c50f157e35a6b09b32d83d9adf0a9dc069470df34da4f84c44ac42": {
+                "namespace": "nirupan-namespace",
+                "podname": "sonicppo2",
+                "cpuReq": 2.0,
+                "cpuReqp": 5.0,
+                "memReq": 16.0,
+                "memReqp": 6.0
+            }
+        }
+    },
+    "dijkstra": {
+        "maxGpu": 2.0,
+        "maxCpu": 16.0,
+        "maxMem": 62.81199264526367,
+        "reqCpu": 1.0,
+        "reqCpuPer": 6.0,
+        "reqMem": 25.0,
+        "reqMemPer": 39.0,
+        "jobs": {
+            "64d01af12dd61b7a0894f3cc01dfc17c1aec145b38d9fb565bdcfd1417b1cf36": {
+                "namespace": "pavanr-namespace",
+                "podname": "dr",
+                "cpuReq": 1.0,
+                "cpuReqp": 6.0,
+                "memReq": 25.0,
+                "memReqp": 39.0
+            }
+        }
+    },
+    "knuth": {
+        "maxGpu": 4.0,
+        "maxCpu": 40.0,
+        "maxMem": 91.5427360534668,
+        "reqCpu": 0.0,
+        "reqCpuPer": 0.0,
+        "reqMem": 0.0,
+        "reqMemPer": 0.0,
+        "jobs": {}
+    }
+}
