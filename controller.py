@@ -23,8 +23,7 @@ def initiate():
 	integratedData["time"] = datetime.datetime.now().strftime("%I %M %S %p %D %Y")
 
 	for node in nodeInf:
-		if node[0] != 'erdos':
-			continue
+
 		gpuMax = float(node[2])
 		cpuMax = float(node[3])
 		memMax = float(node[4][:-2])/(1024*1024.0)
@@ -72,16 +71,17 @@ def initiate():
 		dockSend = []
 		for i in range(numNodes):
 			dockSend.append(nodeCont[i][0])
-		sendData = { 'numIds': numNodes, 'id': dockSend}
-		sendUrl = "http://" + node[1] + ":6277/nodeInfo"
-		print(sendUrl)
-		sendFiles = [ ('datas', ('datas', json.dumps(sendData), 'application/json'))]
-		r = requests.post(sendUrl, files=sendFiles)
 		
-		jsonStr = str(r.content, 'utf-8')
-		print(jsonStr)
-
-		returnDat = json.loads(jsonStr)
+		# If end-point works
+		try:
+			sendData = { 'numIds': numNodes, 'id': dockSend}
+			sendUrl = "http://" + node[1] + ":6277/nodeInfo"
+			sendFiles = [ ('datas', ('datas', json.dumps(sendData), 'application/json'))]
+			r = requests.post(sendUrl, files=sendFiles)
+			jsonStr = str(r.content, 'utf-8')
+			returnDat = json.loads(jsonStr)
+		except:
+			continue
 
 		nodeDat = returnDat["n"]
 		procData = returnDat["p"]
