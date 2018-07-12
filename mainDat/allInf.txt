@@ -1,165 +1,209 @@
 {
-    "erdos": {
-        "maxGpu": 4.0,
-        "maxCpu": 32.0,
-        "maxMem": 251.79745483398438,
-        "reqCpu": 8.0,
-        "reqCpuPer": 25.0,
-        "reqMem": 35.0,
-        "reqMemPer": 13.0,
-        "jobs": {
-            "7c129e067f4e301878bf4014252dde408278ff93da38f5592211428f53410b50": {
-                "namespace": "rahulr-namespace",
-                "podname": "test1",
-                "cpuReq": 1.0,
-                "cpuReqp": 3.0,
-                "memReq": 15.0,
-                "memReqp": 5.0
-            },
-            "832fe43b11159e0db37bae628fd0d212a23eab3ab2b4396cd8d5d42a140f1517": {
-                "namespace": "rahulr-namespace",
-                "podname": "test2",
-                "cpuReq": 7.0,
-                "cpuReqp": 21.0,
-                "memReq": 20.0,
-                "memReqp": 7.0
-            }
-        }
-    },
-    "euclid": {
-        "maxGpu": 4.0,
-        "maxCpu": 40.0,
-        "maxMem": 251.79065322875977,
-        "reqCpu": 0.0,
-        "reqCpuPer": 0.0,
-        "reqMem": 0.0,
-        "reqMemPer": 0.0,
-        "jobs": {}
-    },
-    "bellman": {
-        "maxGpu": 4.0,
-        "maxCpu": 40.0,
-        "maxMem": 503.7953071594238,
-        "reqCpu": 0.0,
-        "reqCpuPer": 0.0,
-        "reqMem": 0.0,
-        "reqMemPer": 0.0,
-        "jobs": {}
-    },
-    "markov": {
-        "maxGpu": 2.0,
-        "maxCpu": 16.0,
-        "maxMem": 62.81203842163086,
-        "reqCpu": 0.0,
-        "reqCpuPer": 0.0,
-        "reqMem": 0.0,
-        "reqMemPer": 0.0,
-        "jobs": {}
-    },
-    "ramanujam": {
-        "maxGpu": 3.0,
-        "maxCpu": 12.0,
-        "maxMem": 125.88337707519531,
-        "reqCpu": 0.0,
-        "reqCpuPer": 0.0,
-        "reqMem": 0.0,
-        "reqMemPer": 0.0,
-        "jobs": {}
-    },
-    "shannon": {
-        "maxGpu": 4.0,
-        "maxCpu": 40.0,
-        "maxMem": 251.795166015625,
-        "reqCpu": 2.0,
-        "reqCpuPer": 5.0,
-        "reqMem": 16.0,
-        "reqMemPer": 6.0,
-        "jobs": {
-            "4d9cd2297240255e52c62e7a42098d6348e4c1710b856b24c57a16746a362d18": {
-                "namespace": "nirupan-namespace",
-                "podname": "sonicdarla",
-                "cpuReq": 2.0,
-                "cpuReqp": 5.0,
-                "memReq": 16.0,
-                "memReqp": 6.0
-            }
-        }
-    },
-    "boole": {
-        "maxGpu": 2.0,
-        "maxCpu": 16.0,
-        "maxMem": 62.8120002746582,
-        "reqCpu": 1.0,
-        "reqCpuPer": 6.0,
-        "reqMem": 25.0,
-        "reqMemPer": 39.0,
-        "jobs": {
-            "82c16b8df3e4ee7b0b93d21ca9812352ae1e081d37fe0b092474c9230ab81a4e": {
-                "namespace": "pavanr-namespace",
-                "podname": "dl",
-                "cpuReq": 1.0,
-                "cpuReqp": 6.0,
-                "memReq": 25.0,
-                "memReqp": 39.0
-            }
-        }
-    },
     "panini": {
+        "reqMem": 16.0,
+        "reqCpu": 2.0,
+        "reqMemPer": 25.0,
         "maxGpu": 2.0,
-        "maxCpu": 16.0,
+        "jobs": {
+            "331be59eadcbb60405476edb4064096136588316af1b305e2fd2f01531a20448": {
+                "cpuReqp": 12.0,
+                "namespace": "nirupan-namespace",
+                "memReqp": 25.0,
+                "memReq": 16.0,
+                "cpuReq": 2.0,
+                "podname": "sonicbase"
+            }
+        },
         "maxMem": 62.81199264526367,
-        "reqCpu": 0.0,
-        "reqCpuPer": 0.0,
-        "reqMem": 0.0,
-        "reqMemPer": 0.0,
-        "jobs": {}
+        "reqCpuPer": 12.0,
+        "maxCpu": 16.0
+    },
+    "erdos": {
+        "reqMem": 30.0,
+        "reqCpu": 4.0,
+        "reqMemPer": 11.0,
+        "maxGpu": 4.0,
+        "jobs": {
+            "24c92b2a14f1cf70803ea7db7321507a78cda37bb219753b6f2cdeee034954d2": {
+                "cpuReqp": 12.0,
+                "namespace": "rahulr-namespace",
+                "memReqp": 11.0,
+                "memReq": 30.0,
+                "cpuReq": 4.0,
+                "podname": "opensimddpg"
+            }
+        },
+        "maxMem": 251.79745483398438,
+        "reqCpuPer": 12.0,
+        "maxCpu": 32.0
     },
     "lamport": {
+        "reqMem": 32.0,
+        "reqCpu": 4.0,
+        "reqMemPer": 12.0,
         "maxGpu": 4.0,
-        "maxCpu": 40.0,
-        "maxMem": 97.05015563964844,
-        "reqCpu": 2.0,
-        "reqCpuPer": 5.0,
-        "reqMem": 16.0,
-        "reqMemPer": 6.0,
         "jobs": {
-            "8c38897002c50f157e35a6b09b32d83d9adf0a9dc069470df34da4f84c44ac42": {
-                "namespace": "nirupan-namespace",
-                "podname": "sonicppo2",
-                "cpuReq": 2.0,
-                "cpuReqp": 5.0,
-                "memReq": 16.0,
-                "memReqp": 6.0
+            "abcbf16fa63547317a00bb8487c31867a91e2fec3a99013e4bae296ca2e14c0f": {
+                "cpuReqp": 10.0,
+                "namespace": "athindran-namespace",
+                "memReqp": 12.0,
+                "memReq": 32.0,
+                "cpuReq": 4.0,
+                "podname": "ssdbaselinespeed"
             }
-        }
+        },
+        "maxMem": 97.05015563964844,
+        "reqCpuPer": 10.0,
+        "maxCpu": 40.0
+    },
+    "euclid": {
+        "reqMem": 16.0,
+        "reqCpu": 4.0,
+        "reqMemPer": 6.0,
+        "maxGpu": 4.0,
+        "jobs": {
+            "ca1ef4d09cee254c59cbe027557361705d912640d1bf9242d484eb86de4e9142": {
+                "cpuReqp": 10.0,
+                "namespace": "nirupan-namespace",
+                "memReqp": 6.0,
+                "memReq": 16.0,
+                "cpuReq": 4.0,
+                "podname": "sonicbvae"
+            }
+        },
+        "maxMem": 251.79065322875977,
+        "reqCpuPer": 10.0,
+        "maxCpu": 40.0
+    },
+    "markov": {
+        "reqMem": 0.0,
+        "reqCpu": 0.0,
+        "reqMemPer": 0.0,
+        "maxGpu": 2.0,
+        "jobs": {},
+        "maxMem": 62.81203842163086,
+        "reqCpuPer": 0.0,
+        "maxCpu": 16.0
+    },
+    "shannon": {
+        "reqMem": 0.0,
+        "reqCpu": 0.0,
+        "reqMemPer": 0.0,
+        "maxGpu": 4.0,
+        "jobs": {},
+        "maxMem": 251.795166015625,
+        "reqCpuPer": 0.0,
+        "maxCpu": 40.0
     },
     "dijkstra": {
-        "maxGpu": 2.0,
-        "maxCpu": 16.0,
-        "maxMem": 62.81199264526367,
-        "reqCpu": 1.0,
-        "reqCpuPer": 6.0,
         "reqMem": 25.0,
+        "reqCpu": 1.0,
         "reqMemPer": 39.0,
+        "maxGpu": 2.0,
         "jobs": {
             "64d01af12dd61b7a0894f3cc01dfc17c1aec145b38d9fb565bdcfd1417b1cf36": {
-                "namespace": "pavanr-namespace",
-                "podname": "dr",
-                "cpuReq": 1.0,
                 "cpuReqp": 6.0,
+                "namespace": "pavanr-namespace",
+                "memReqp": 39.0,
                 "memReq": 25.0,
-                "memReqp": 39.0
+                "cpuReq": 1.0,
+                "podname": "dr"
             }
-        }
+        },
+        "maxMem": 62.81199264526367,
+        "reqCpuPer": 6.0,
+        "maxCpu": 16.0
     },
     "knuth": {
+        "reqMem": 20.0,
+        "reqCpu": 4.0,
+        "reqMemPer": 3.0,
         "maxGpu": 4.0,
-        "maxCpu": 40.0,
+        "jobs": {
+            "8ac8f17133e7a168e658c9f15c1dcf297ee6badf3231c429566f76e2023f065b": {
+                "cpuReqp": 10.0,
+                "namespace": "miteshk-namespace",
+                "memReqp": 3.0,
+                "memReq": 20.0,
+                "cpuReq": 4.0,
+                "podname": "gttp"
+            }
+        },
         "maxMem": 91.5427360534668,
-        "reqCpu": 0.0,
-        "reqCpuPer": 0.0,
-        "reqMem": 0.0,
-        "reqMemPer": 0.0,
-        "jobs": {}
+        "reqCpuPer": 10.0,
+        "maxCpu": 40.0
+    },
+    "bellman": {
+        "reqMem": 32.0,
+        "reqCpu": 4.0,
+        "reqMemPer": 6.0,
+        "maxGpu": 4.0,
+        "jobs": {
+            "29b6fcb8dc7adf38df9f0c4feeb2650698081a772c14b847070a1aa0ceb9771d": {
+                "cpuReqp": 10.0,
+                "namespace": "athindran-namespace",
+                "memReqp": 6.0,
+                "memReq": 32.0,
+                "cpuReq": 4.0,
+                "podname": "ssdcaffemapeval"
+            }
+        },
+        "maxMem": 503.7953071594238,
+        "reqCpuPer": 10.0,
+        "maxCpu": 40.0
+    },
+    "boole": {
+        "reqMem": 25.0,
+        "reqCpu": 1.0,
+        "reqMemPer": 39.0,
+        "maxGpu": 2.0,
+        "jobs": {
+            "82c16b8df3e4ee7b0b93d21ca9812352ae1e081d37fe0b092474c9230ab81a4e": {
+                "cpuReqp": 6.0,
+                "namespace": "pavanr-namespace",
+                "memReqp": 39.0,
+                "memReq": 25.0,
+                "cpuReq": 1.0,
+                "podname": "dl"
+            }
+        },
+        "maxMem": 62.8120002746582,
+        "reqCpuPer": 6.0,
+        "maxCpu": 16.0
+    },
+    "ramanujam": {
+        "reqMem": 54.0,
+        "reqCpu": 6.0,
+        "reqMemPer": 42.0,
+        "maxGpu": 3.0,
+        "jobs": {
+            "131a7f01f15b034438bdd42f93244203324712c93f83ea52ddc008d8c5562143": {
+                "cpuReqp": 33.0,
+                "namespace": "bmanoj-namespace",
+                "memReqp": 19.0,
+                "memReq": 25.0,
+                "cpuReq": 4.0,
+                "podname": "pytorch-yolo"
+            },
+            "8eed667f70c1bb0c9866a0ed459d9c72c93f42b08392132951ca8d2e34342a6a": {
+                "cpuReqp": 8.0,
+                "namespace": "miteshk-namespace",
+                "memReqp": 3.0,
+                "memReq": 4.0,
+                "cpuReq": 1.0,
+                "podname": "gttp-val"
+            },
+            "50cae60a985aa237132fc02030c8523eed8cf6ec19beca2b356f07e429691c0a": {
+                "cpuReqp": 8.0,
+                "namespace": "arjun-namespace",
+                "memReqp": 19.0,
+                "memReq": 25.0,
+                "cpuReq": 1.0,
+                "podname": "a2t"
+            }
+        },
+        "maxMem": 125.88337707519531,
+        "reqCpuPer": 50.0,
+        "maxCpu": 12.0
     }
 }

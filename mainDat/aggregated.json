@@ -1,216 +1,75 @@
 {
     "nodes": {
         "erdos": {
-            "memUsage": 8.764940239043826,
-            "totGpu": 4,
+            "reqCpuPer": 25.0,
+            "memUsage": 11.155378486055776,
+            "reqMemPer": 19.0,
             "gpu2": {
-                "memUsed": 4426.0,
-                "util": 17.0,
-                "name": "Tesla K20c",
-                "memTot": 4742.0
-            },
-            "gpu1": {
-                "memUsed": 0.0,
                 "util": 0.0,
-                "name": "Tesla K20c",
-                "memTot": 4742.0
-            },
-            "gpu3": {
                 "memUsed": 0.0,
-                "util": 87.0,
-                "name": "Tesla K20c",
-                "memTot": 4742.0
+                "memTot": 4742.0,
+                "name": "Tesla K20c"
             },
-            "cpuUsage": 6.1,
-            "gpuUse": [
-                0,
-                2
-            ],
-            "gpu0": {
-                "memUsed": 287.0,
-                "util": 18.0,
-                "name": "Tesla K20c",
-                "memTot": 4742.0
+            "reqMem": 50.0,
+            "gpu1": {
+                "util": 0.0,
+                "memUsed": 0.0,
+                "memTot": 4742.0,
+                "name": "Tesla K20c"
             },
             "maxCpu": 32.0,
+            "gpu0": {
+                "util": 87.0,
+                "memUsed": 4212.0,
+                "memTot": 4742.0,
+                "name": "Tesla K20c"
+            },
+            "gpu3": {
+                "util": 88.0,
+                "memUsed": 0.0,
+                "memTot": 4742.0,
+                "name": "Tesla K20c"
+            },
+            "gpuUse": [
+                0
+            ],
+            "totGpu": 4,
             "maxMem": 251.79745483398438,
             "reqCpu": 8.0,
-            "reqCpuPer": 25.0,
-            "reqMem": 35.0,
-            "reqMemPer": 13.0
-        },
-        "euclid": {
-            "noData": 1,
-            "maxCpu": 40.0,
-            "maxMem": 251.79065322875977,
-            "reqCpu": 0.0,
-            "reqCpuPer": 0.0,
-            "reqMem": 0.0,
-            "reqMemPer": 0.0
-        },
-        "bellman": {
-            "noData": 1,
-            "maxCpu": 40.0,
-            "maxMem": 503.7953071594238,
-            "reqCpu": 0.0,
-            "reqCpuPer": 0.0,
-            "reqMem": 0.0,
-            "reqMemPer": 0.0
-        },
-        "markov": {
-            "noData": 1,
-            "maxCpu": 16.0,
-            "maxMem": 62.81203842163086,
-            "reqCpu": 0.0,
-            "reqCpuPer": 0.0,
-            "reqMem": 0.0,
-            "reqMemPer": 0.0
-        },
-        "ramanujam": {
-            "noData": 1,
-            "maxCpu": 12.0,
-            "maxMem": 125.88337707519531,
-            "reqCpu": 0.0,
-            "reqCpuPer": 0.0,
-            "reqMem": 0.0,
-            "reqMemPer": 0.0
-        },
-        "shannon": {
-            "noData": 1,
-            "maxCpu": 40.0,
-            "maxMem": 251.795166015625,
-            "reqCpu": 2.0,
-            "reqCpuPer": 5.0,
-            "reqMem": 16.0,
-            "reqMemPer": 6.0
-        },
-        "boole": {
-            "noData": 1,
-            "maxCpu": 16.0,
-            "maxMem": 62.8120002746582,
-            "reqCpu": 1.0,
-            "reqCpuPer": 6.0,
-            "reqMem": 25.0,
-            "reqMemPer": 39.0
-        },
-        "panini": {
-            "noData": 1,
-            "maxCpu": 16.0,
-            "maxMem": 62.81199264526367,
-            "reqCpu": 0.0,
-            "reqCpuPer": 0.0,
-            "reqMem": 0.0,
-            "reqMemPer": 0.0
-        },
-        "lamport": {
-            "noData": 1,
-            "maxCpu": 40.0,
-            "maxMem": 97.05015563964844,
-            "reqCpu": 2.0,
-            "reqCpuPer": 5.0,
-            "reqMem": 16.0,
-            "reqMemPer": 6.0
-        },
-        "dijkstra": {
-            "noData": 1,
-            "maxCpu": 16.0,
-            "maxMem": 62.81199264526367,
-            "reqCpu": 1.0,
-            "reqCpuPer": 6.0,
-            "reqMem": 25.0,
-            "reqMemPer": 39.0
-        },
-        "knuth": {
-            "noData": 1,
-            "maxCpu": 40.0,
-            "maxMem": 91.5427360534668,
-            "reqCpu": 0.0,
-            "reqCpuPer": 0.0,
-            "reqMem": 0.0,
-            "reqMemPer": 0.0
+            "cpuUsage": 11.6
         }
     },
     "pods": {
         "rahulr-namespace": [
             {
-                "node": "test1",
-                "cpuReq": 1.0,
-                "cpuReqp": 3.0,
-                "memReq": 15.0,
-                "memReqp": 5.0,
-                "gpuUsed": -404,
-                "gpuMem": -404,
-                "cpuUtil": -404,
-                "memUtil": -404,
-                "noData": 1
-            },
+                "memReq": 30.0,
+                "node": "opensimddpg",
+                "cpuReqp": 12.0,
+                "gpuMem": {},
+                "memUtil": 138.18181818181816,
+                "cpuUtil": 99.55,
+                "gpuUsed": [],
+                "cpuReq": 4.0,
+                "memReqp": 11.0
+            }
+        ],
+        "sidarora-namespace": [
             {
-                "node": "test2",
-                "cpuReq": 7.0,
-                "cpuReqp": 21.0,
                 "memReq": 20.0,
-                "memReqp": 7.0,
-                "gpuUsed": [
-                    2
-                ],
+                "node": "p-gen",
+                "cpuReqp": 12.0,
                 "gpuMem": {
-                    "2": 4415.0
+                    "0": 4201.0
                 },
-                "cpuUtil": 16.285714285714285,
-                "memUtil": 80.0
-            }
-        ],
-        "nirupan-namespace": [
-            {
-                "node": "sonicdarla",
-                "cpuReq": 2.0,
-                "cpuReqp": 5.0,
-                "memReq": 16.0,
-                "memReqp": 6.0,
-                "gpuUsed": -404,
-                "gpuMem": -404,
-                "cpuUtil": -404,
-                "memUtil": -404,
-                "noData": 1
-            },
-            {
-                "node": "sonicppo2",
-                "cpuReq": 2.0,
-                "cpuReqp": 5.0,
-                "memReq": 16.0,
-                "memReqp": 6.0,
-                "gpuUsed": -404,
-                "gpuMem": -404,
-                "cpuUtil": -404,
-                "memUtil": -404,
-                "noData": 1
-            }
-        ],
-        "pavanr-namespace": [
-            {
-                "node": "dl",
-                "cpuReq": 1.0,
-                "cpuReqp": 6.0,
-                "memReq": 25.0,
-                "memReqp": 39.0,
-                "gpuUsed": -404,
-                "gpuMem": -404,
-                "cpuUtil": -404,
-                "memUtil": -404,
-                "noData": 1
-            },
-            {
-                "node": "dr",
-                "cpuReq": 1.0,
-                "cpuReqp": 6.0,
-                "memReq": 25.0,
-                "memReqp": 39.0,
-                "gpuUsed": -404,
-                "gpuMem": -404,
-                "cpuUtil": -404,
-                "memUtil": -404,
-                "noData": 1
+                "memUtil": 14.285714285714286,
+                "cpuUtil": 44.5,
+                "gpuUsed": [
+                    0
+                ],
+                "cpuReq": 4.0,
+                "memReqp": 7.0
             }
         ]
-    }
+    },
+    "time": "05 15 55 PM 07/12/18 2018"
 }
