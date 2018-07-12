@@ -1,4 +1,5 @@
 pip install --user flask
 cd slave
-python api.py
+nohup python -u api.py 2 &>1 &> err.log
+cd ..
 
