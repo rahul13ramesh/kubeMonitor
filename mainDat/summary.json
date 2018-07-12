@@ -2,31 +2,31 @@
     "pods": [
         {
             "status": "Running",
-            "time": "6h",
+            "time": "7h",
             "namespace": "arjun",
             "podName": "a2t"
         },
         {
             "status": "Running",
-            "time": "2h",
+            "time": "3h",
             "namespace": "athindran",
             "podName": "ssdbaselinespeed"
         },
         {
             "status": "Running",
-            "time": "1h",
+            "time": "2h",
             "namespace": "athindran",
             "podName": "ssdcaffemapeval"
         },
         {
             "status": "Error",
-            "time": "19s",
+            "time": "22m",
             "namespace": "bmanoj",
             "podName": "manoj"
         },
         {
             "status": "Error",
-            "time": "3h",
+            "time": "4h",
             "namespace": "karthikt",
             "podName": "retino"
         },
@@ -50,13 +50,13 @@
         },
         {
             "status": "OOMKilled",
-            "time": "5h",
+            "time": "6h",
             "namespace": "nikita",
             "podName": "p-gen"
         },
         {
             "status": "Running",
-            "time": "3h",
+            "time": "4h",
             "namespace": "nirupan",
             "podName": "sonicbase"
         },
@@ -68,7 +68,7 @@
         },
         {
             "status": "Error",
-            "time": "12m",
+            "time": "44m",
             "namespace": "nithyam",
             "podName": "train"
         },
@@ -98,13 +98,13 @@
         },
         {
             "status": "Running",
-            "time": "1h",
+            "time": "2h",
             "namespace": "sidarora",
             "podName": "p-gen"
         },
         {
             "status": "Running",
-            "time": "1h",
+            "time": "2h",
             "namespace": "sidarora",
             "podName": "p-gen-val"
         }
