@@ -27,25 +27,26 @@ def podUsage(containerId):
 	
 	procList = []
 	for s in shellList:
-		proctxt = os.popen("pgrep -P "  + s).read()
+		proctxt = os.popen("pstree -p " + str(s) +  " | grep -o '([0-9]\+)' | grep -o '[0-9]\+'").read()
 		for l in proctxt.strip().split("\n"):
 			procList.append(l.strip())	
-	
+
 	cpuUsage = 0
 	memUsage = 0
 	usedGpu = set()
 	usedGpuMem = {} # assumes machine has max 10 GPUs
 	for pid in procList:
 		pstxt = os.popen("ps -p " + pid + " -o pcpu,pmem").read()
-		pstxt = pstxt.strip().split("\n")[1].strip().split()
-		cpuUsage += float(pstxt[0])
-		memUsage += float(pstxt[1])
-		for d in gpuDat1:
-			if pid == d[1]:
-				usedGpu.add(int(d[0]))
-				if int(d[0]) not in usedGpuMem:
-					usedGpuMem[int(d[0])] = 0
-				usedGpuMem[int(d[0])] += float(d[2].strip()[:-3])
+		if len(pstxt.strip().split("\n")) >= 2:
+			pstxt = pstxt.strip().split("\n")[1].strip().split()
+			cpuUsage += float(pstxt[0])
+			memUsage += float(pstxt[1])
+			for d in gpuDat1:
+				if pid == d[1]:
+					usedGpu.add(int(d[0]))
+					if int(d[0]) not in usedGpuMem:
+						usedGpuMem[int(d[0])] = 0
+					usedGpuMem[int(d[0])] += float(d[2].strip()[:-3])
 	return cpuUsage, memUsage, list(usedGpu), usedGpuMem
 
 
@@ -73,18 +74,6 @@ def getNodeUsage(allCont):
 	return cpuMem, list(usedGpus), gpuDat2, cpuUsage, (memUsage1/memTot)
 		
 	
-def getIds():
-	f = open("mainDat/" + machineName + "dockerId.txt", "r")
-	portalocker.lock(f, portalocker.LOCK_EX)
-	cont = f.readlines()
-	num = int(cont[0].strip())
-	ids = []
-	for i in range(num):
-		ids.append(cont[i+1].strip())
-		
-	f.close()
-	return ids
-
 def writeFile(cpuMem, gpus, gpuDat, cpu, mem, idList2):
 	nodeDat = {}
 	nodeDat["cpuUsage"] = float(cpu) 
@@ -100,11 +89,6 @@ def writeFile(cpuMem, gpus, gpuDat, cpu, mem, idList2):
 			"memTot" : float(gpuInfo[2].split()[0]),
 			"memUsed" : float(gpuInfo[3].split()[0]) }
 	
-	f = open("nodeDat/" + machineName + "-node.json", "w")
-	portalocker.lock(f, portalocker.LOCK_EX)
-	json.dump(nodeDat, f, indent=4)
-	f.close()
-
 	procDat = {}
 	for p, idL in zip(cpuMem, idList2):
 		procDat[idL] = {
@@ -113,16 +97,10 @@ def writeFile(cpuMem, gpus, gpuDat, cpu, mem, idList2):
 			"gpuUsed" : p[2],
 			"gpuMem" : p[3] }
 
-	f = open("nodeDat/" + machineName + "-proc.json", "w")
-	portalocker.lock(f, portalocker.LOCK_EX)
-	json.dump(procDat, f, indent=4)
-	f.close()
-	
-while True:
-	idList2 = getIds()
-	cpuMemDat, gpuUse, gpuDat, cpu, mem = getNodeUsage(idList2)
-	writeFile(cpuMemDat, gpuUse, gpuDat, cpu, mem, idList2)
-	time.sleep(30)
+	masterDat = {"p" : procDat, "n": nodeDat}
+	return masterDat
+
+
 
 
 
