@@ -131,7 +131,6 @@ def initiate():
 wait_time = 60
 while True:
 	initiate()
-	break
 	time.sleep(wait_time)
 
 
