@@ -58,6 +58,7 @@ def initiate():
 					curJsonJobs[c[0]] = {
 						"namespace": j[0],
 						"podname": j[1],
+						"node": node[0],
 						"cpuReq": float(re.findall(r'\d+', j[4])[0]),
 						"cpuReqp": float(re.findall(r'\d+', j[5])[0]),
 						"memReq": float(re.findall(r'\d+', j[8])[0]),
@@ -102,6 +103,7 @@ def initiate():
 			if jov["namespace"] not in integratedData["pods"]:
 				integratedData["pods"][jov["namespace"]] = []
 			curjo = {
+				"podname": jov["node"],
 				"node": jov["podname"],
 				"cpuReq": jov["cpuReq"],
 				"cpuReqp": jov["cpuReqp"],
