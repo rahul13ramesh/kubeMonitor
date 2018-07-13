@@ -30,7 +30,8 @@ def getNodes():
     return node
 
 
-def getNodeInfo(nodes): nodeData = []
+def getNodeInfo(nodes): 
+    nodeData = []
     for no in nodes:
         curList = []
         curList.append(no)
@@ -73,7 +74,7 @@ def getPodInfo(pods):
         if len(podDesc.strip().split("//")) >= 2:
             cont = podDesc.strip().split("//")[1]
             containers.append((cont, (po, ns)))
-	else:
+        else:
             print(podDesc)
             assert(1==2)
     return containers
