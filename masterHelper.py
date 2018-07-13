@@ -71,6 +71,7 @@ def getPodInfo(pods):
         cmd = 'kubectl describe pods ' + po + \
             ' --namespace ' + ns + ' | grep "Container ID"'
         podDesc = os.popen(cmd).read()
-        cont = podDesc.strip().split("//")[1]
-        containers.append((cont, (po, ns)))
+	if len(podDesc.strip().split("//")) >= 2
+		cont = podDesc.strip().split("//")[1]
+		containers.append((cont, (po, ns)))
     return containers
