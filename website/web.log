@@ -1,0 +1,45 @@
+[2018-07-13 12:29:06 +0530] [18862] [INFO] Starting gunicorn 19.9.0
+[2018-07-13 12:29:06 +0530] [18862] [INFO] Listening at: http://0.0.0.0:6277 (18862)
+[2018-07-13 12:29:06 +0530] [18862] [INFO] Using worker: sync
+[2018-07-13 12:29:06 +0530] [18890] [INFO] Booting worker with pid: 18890
+[2018-07-13 12:29:06 +0530] [18891] [INFO] Booting worker with pid: 18891
+[2018-07-13 12:29:07 +0530] [18892] [INFO] Booting worker with pid: 18892
+[2018-07-13 12:29:07 +0530] [18894] [INFO] Booting worker with pid: 18894
+[2018-07-13 12:29:07 +0530] [18897] [INFO] Booting worker with pid: 18897
+[2018-07-13 12:29:07 +0530] [18900] [INFO] Booting worker with pid: 18900
+[2018-07-13 12:29:07 +0530] [18901] [INFO] Booting worker with pid: 18901
+[2018-07-13 12:29:07 +0530] [18902] [INFO] Booting worker with pid: 18902
+[2018-07-13 12:29:30,093] ERROR in app: Exception on /pod [GET]
+Traceback (most recent call last):
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/tools/kubernetes/kubeMonitor/website/myApp.py", line 59, in pod
+    denom += nd[node]['gpu' + str(gp)]['memTot']
+KeyError: 'dl'
+[2018-07-13 12:29:48,113] ERROR in app: Exception on /pod [GET]
+Traceback (most recent call last):
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/scratch/scratch1/rahul/virtualEnvs/monitor/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/tools/kubernetes/kubeMonitor/website/myApp.py", line 59, in pod
+    denom += nd[node]['gpu' + str(gp)]['memTot']
+KeyError: 'dl'
