@@ -111,8 +111,8 @@ def initiate():
             if jov["namespace"] not in integratedData["pods"]:
                 integratedData["pods"][jov["namespace"]] = []
             curjo = {
-                "podname": jov["node"],
-                "node": jov["podname"],
+                "podname": jov["podname"],
+                "node": jov["node"],
                 "cpuReq": jov["cpuReq"],
                 "cpuReqp": jov["cpuReqp"],
                 "memReq": jov["memReq"],
