@@ -35,7 +35,10 @@ def node():
             nd[n]["gpu" + str(l)]["util"] = str(int(float(nd[n]["gpu" + str(l)]["util"])))
             nd[n]["gpu" + str(l)]["memUsed"] = str(int(float(nd[n]["gpu" + str(l)]["memUsed"])))
         numGpus[n] = cnt
-        gpuUsg[n] = int(float(nume) / denom * 100)
+        if denom == 0:
+            gpuUsg[n] = 0
+	else:
+            gpuUsg[n] = int(float(nume) / denom * 100)
     return render_template("nodes.html", data=summ['pods'], nodeData=nd,
                            gpuUsg=gpuUsg, numGpus=numGpus, str=str,
                            sorted=sorted)
@@ -57,9 +60,12 @@ def pod():
             denom = 0
             for gp in job['gpuUsed']:
                 denom += nd[node]['gpu' + str(gp)]['memTot']
-                nume += gp['gpuMem'][str(gp)]
+                nume += job['gpuMem'][str(gp)]
+            if denom == 0:
+                pd[p][count]["avgGpuUsg"] = 0
+            else:
+                pd[p][count]["avgGpuUsg"] = int(float(nume*100)/denom)
             count += 1
-            pd[p][count]["avgGpuUsg"] = int(float(nume*100)/denom)
 
     return render_template("pods.html", data=pd, sorted=sorted, len=len,
                            int=int, str=str, nodeDat=nd)
