@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Kube-Monitor | Tracking CPU/GPU usage </title>
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="static/css/styles.css"  media="screen,projection"/>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	</head>
+
+	<body>
+
+		<nav class="blue darken-3 color-primary">
+			<div class="nav-wrapper">
+				<a href="#" class="brand-logo">Kubernetes Monitoring - Pod and
+					Node Usage </a>
+			</div>
+		</nav>  
+		<div class="tab-bar  color-primary--dark">
+			<a href="#" class="layout__tab is-active">Overview</a>
+			<a href="pod" class="layout__tab">Pod Details </a>
+			<a href="node" class="layout__tab">Node Details</a>
+		</div>
+		<div class="container">
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row">
+			<div class="col s12">
+			<table class="responsive-table highlighted centered">
+				<thead>
+					<tr class="grey darken-3 white-text">
+						<th>Namespace</th>
+						<th>Pod Name</th>
+						<th>Status</th>
+						<th>Time Elapsed</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					{% for datPt in data %}
+					{% if datPt["status"] == "Running" %}
+						<tr class="amber lighten-2">
+					{% elif datPt["status"] == "Completed" %}
+						<tr class="green lighten-2">
+					{% elif datPt["status"] == "OOMKilled" %}
+						<tr class="red lighten-2">
+					{% elif datPt["status"] == "Error" %}
+						<tr class="red lighten-2">
+					{% else %}
+						<tr class="red lighten-3">
+						{% endif %}
+							<td>{{ datPt["namespace"] }}</td>
+							<td>{{ datPt["podName"] }}</td>
+							<td>{{ datPt["status"] }}</td>
+							<td>{{ datPt["time"] }}</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			</div>
+			</div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+		</div>
+		<footer class="page-footer">
+			<div class="footer-copyright">
+				<div class="">
+				</div>
+			</div>
+		</footer>
+
+		<!--JavaScript at end of body for optimized loading-->
+		<script type="text/javascript" src="static/js/materialize.min.js"></script>
+	</body>
+</html>

@@ -12,8 +12,10 @@ from masterHelper import getNamespaces, getNodes
 def getStat():
 
     overviewDat = {"pods": []}
+    #  Get namespaces, pod data and pods
     ns, dat, pods = getNamespaces()
 
+    #  Write into json
     for dpt in dat:
         tmpJ = {
             "namespace": dpt[0][:-10],
@@ -22,6 +24,7 @@ def getStat():
             "time": dpt[3]}
         overviewDat["pods"].append(tmpJ)
 
+    #  Write json to file
     f = open("mainDat/summary.json", "w")
     portalocker.lock(f, portalocker.LOCK_EX)
     json.dump(overviewDat, f, indent=4)
