@@ -37,7 +37,7 @@ def node():
         numGpus[n] = cnt
         if denom == 0:
             gpuUsg[n] = 0
-	else:
+        else:
             gpuUsg[n] = int(float(nume) / denom * 100)
     return render_template("nodes.html", data=summ['pods'], nodeData=nd,
                            gpuUsg=gpuUsg, numGpus=numGpus, str=str,
