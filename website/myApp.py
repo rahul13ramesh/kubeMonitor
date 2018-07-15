@@ -41,7 +41,7 @@ def node():
             gpuUsg[n] = int(float(nume) / denom * 100)
     return render_template("nodes.html", data=summ['pods'], nodeData=nd,
                            gpuUsg=gpuUsg, numGpus=numGpus, str=str,
-                           sorted=sorted)
+                           sorted=sorted, len=len)
 
 
 @app.route('/pod')
