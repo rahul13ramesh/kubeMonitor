@@ -14,7 +14,7 @@
             "maxCpu": 16.0,
             "reqCpuPer": 0.0,
             "reqMemPer": 0.0,
-            "cpuUsage": 0.4,
+            "cpuUsage": 0.2,
             "maxMem": 62.81203842163086,
             "reqMem": 0.0,
             "gpu1": {
@@ -62,23 +62,25 @@
         },
         "panini": {
             "totGpu": 2,
-            "gpuUse": [],
-            "reqCpu": 0.0,
-            "memUsage": 4.838709677419355,
+            "gpuUse": [
+                0
+            ],
+            "reqCpu": 2.0,
+            "memUsage": 6.451612903225806,
             "gpu0": {
-                "util": 35.0,
+                "util": 1.0,
                 "memTot": 11439.0,
-                "memUsed": 0.0,
+                "memUsed": 10964.0,
                 "name": "Tesla K80"
             },
             "maxCpu": 16.0,
-            "reqCpuPer": 0.0,
-            "reqMemPer": 0.0,
-            "cpuUsage": 0.1,
+            "reqCpuPer": 12.0,
+            "reqMemPer": 25.0,
+            "cpuUsage": 7.2,
             "maxMem": 62.81199264526367,
-            "reqMem": 0.0,
+            "reqMem": 16.0,
             "gpu1": {
-                "util": 99.0,
+                "util": 100.0,
                 "memTot": 11439.0,
                 "memUsed": 0.0,
                 "name": "Tesla K80"
@@ -87,8 +89,8 @@
         "erdos": {
             "totGpu": 4,
             "gpuUse": [],
-            "reqCpu": 4.0,
-            "memUsage": 9.9601593625498,
+            "reqCpu": 8.0,
+            "memUsage": 1.1952191235059761,
             "gpu0": {
                 "util": 0.0,
                 "memTot": 4742.0,
@@ -102,17 +104,17 @@
                 "memUsed": 0.0,
                 "name": "Tesla K20c"
             },
-            "reqMemPer": 11.0,
-            "cpuUsage": 6.6,
+            "reqMemPer": 12.0,
+            "cpuUsage": 14.9,
             "gpu3": {
-                "util": 82.0,
+                "util": 97.0,
                 "memTot": 4742.0,
                 "memUsed": 0.0,
                 "name": "Tesla K20c"
             },
             "maxMem": 251.79745483398438,
-            "reqCpuPer": 12.0,
-            "reqMem": 30.0,
+            "reqCpuPer": 25.0,
+            "reqMem": 32.0,
             "gpu1": {
                 "util": 0.0,
                 "memTot": 4742.0,
@@ -141,7 +143,7 @@
                 "name": "GeForce GTX 1080 Ti"
             },
             "reqMemPer": 3.0,
-            "cpuUsage": 3.9,
+            "cpuUsage": 4.0,
             "gpu3": {
                 "util": 0.0,
                 "memTot": 11172.0,
@@ -179,7 +181,7 @@
                 "name": "GeForce GTX 1080 Ti"
             },
             "reqMemPer": 5.0,
-            "cpuUsage": 6.3,
+            "cpuUsage": 5.4,
             "gpu3": {
                 "util": 0.0,
                 "memTot": 11172.0,
@@ -204,7 +206,7 @@
             "reqCpu": 1.0,
             "memUsage": 32.25806451612903,
             "gpu0": {
-                "util": 20.0,
+                "util": 22.0,
                 "memTot": 11439.0,
                 "memUsed": 10960.0,
                 "name": "Tesla K80"
@@ -212,63 +214,26 @@
             "maxCpu": 16.0,
             "reqCpuPer": 6.0,
             "reqMemPer": 39.0,
-            "cpuUsage": 5.7,
+            "cpuUsage": 5.9,
             "maxMem": 62.8120002746582,
             "reqMem": 25.0,
             "gpu1": {
-                "util": 100.0,
+                "util": 99.0,
                 "memTot": 11439.0,
                 "memUsed": 0.0,
                 "name": "Tesla K80"
             }
         },
-        "euclid": {
-            "totGpu": 4,
-            "gpuUse": [
-                0
-            ],
-            "reqCpu": 1.0,
-            "memUsage": 0.398406374501992,
-            "gpu0": {
-                "util": 10.0,
-                "memTot": 11172.0,
-                "memUsed": 491.0,
-                "name": "GeForce GTX 1080 Ti"
-            },
-            "maxCpu": 40.0,
-            "gpu2": {
-                "util": 0.0,
-                "memTot": 11172.0,
-                "memUsed": 0.0,
-                "name": "GeForce GTX 1080 Ti"
-            },
-            "reqMemPer": 1.0,
-            "cpuUsage": 1.9,
-            "gpu3": {
-                "util": 0.0,
-                "memTot": 11172.0,
-                "memUsed": 0.0,
-                "name": "GeForce GTX 1080 Ti"
-            },
-            "maxMem": 251.79065322875977,
-            "reqCpuPer": 2.0,
-            "reqMem": 4.0,
-            "gpu1": {
-                "util": 0.0,
-                "memTot": 11172.0,
-                "memUsed": 0.0,
-                "name": "GeForce GTX 1080 Ti"
-            }
-        },
         "lamport": {
             "totGpu": 4,
             "gpuUse": [
-                0
+                0,
+                3
             ],
-            "reqCpu": 0.0,
-            "memUsage": 0.796812749003984,
+            "reqCpu": 4.0,
+            "memUsage": 3.5856573705179287,
             "gpu0": {
-                "util": 28.0,
+                "util": 19.0,
                 "memTot": 11171.0,
                 "memUsed": 311.0,
                 "name": "GeForce GTX 1080 Ti"
@@ -280,17 +245,17 @@
                 "memUsed": 2.0,
                 "name": "GeForce GTX 1080 Ti"
             },
-            "reqMemPer": 0.0,
-            "cpuUsage": 0.2,
+            "reqMemPer": 6.0,
+            "cpuUsage": 1.9,
             "gpu3": {
-                "util": 0.0,
+                "util": 92.0,
                 "memTot": 11172.0,
-                "memUsed": 2.0,
+                "memUsed": 10798.0,
                 "name": "GeForce GTX 1080 Ti"
             },
             "maxMem": 97.05015563964844,
-            "reqCpuPer": 0.0,
-            "reqMem": 0.0,
+            "reqCpuPer": 10.0,
+            "reqMem": 16.0,
             "gpu1": {
                 "util": 0.0,
                 "memTot": 11172.0,
@@ -314,11 +279,11 @@
             "maxCpu": 16.0,
             "reqCpuPer": 6.0,
             "reqMemPer": 39.0,
-            "cpuUsage": 6.0,
+            "cpuUsage": 5.5,
             "maxMem": 62.81199264526367,
             "reqMem": 25.0,
             "gpu1": {
-                "util": 98.0,
+                "util": 99.0,
                 "memTot": 11439.0,
                 "memUsed": 1.0,
                 "name": "Tesla K80"
@@ -333,15 +298,15 @@
             ],
             "memUsage": 16.0,
             "gpu0": {
-                "util": 21.0,
+                "util": 24.0,
                 "memTot": 12207.0,
-                "memUsed": 704.0,
+                "memUsed": 731.0,
                 "name": "GeForce GTX TITAN X"
             },
             "maxCpu": 12.0,
             "reqCpu": 6.0,
             "reqMemPer": 48.0,
-            "cpuUsage": 25.9,
+            "cpuUsage": 26.9,
             "maxMem": 125.88337707519531,
             "gpu2": {
                 "util": 13.0,
@@ -352,33 +317,15 @@
             "reqCpuPer": 50.0,
             "reqMem": 61.0,
             "gpu1": {
-                "util": 34.0,
+                "util": 12.0,
                 "memTot": 12207.0,
                 "memUsed": 459.0,
                 "name": "GeForce GTX TITAN X"
             }
         }
     },
-    "time": "12 46 17 PM 07/13/18 2018",
+    "time": "03 43 33 PM 07/13/18 2018",
     "pods": {
-        "sidarora-namespace": [
-            {
-                "node": "euclid",
-                "cpuReqp": 2.0,
-                "memUtil": 40.0,
-                "memReqp": 1.0,
-                "podname": "p-gen-val",
-                "cpuReq": 1.0,
-                "memReq": 4.0,
-                "cpuUtil": 98.6,
-                "gpuMem": {
-                    "0": 481.0
-                },
-                "gpuUsed": [
-                    0
-                ]
-            }
-        ],
         "miteshk-namespace": [
             {
                 "node": "knuth",
@@ -469,17 +416,51 @@
             {
                 "node": "shannon",
                 "cpuReqp": 10.0,
-                "memUtil": 100.0,
+                "memUtil": 102.00000000000001,
                 "memReqp": 5.0,
                 "podname": "test",
                 "cpuReq": 4.0,
                 "memReq": 15.0,
-                "cpuUtil": 82.6,
+                "cpuUtil": 77.3,
                 "gpuMem": {
                     "3": 687.0
                 },
                 "gpuUsed": [
                     3
+                ]
+            }
+        ],
+        "nirupan-namespace": [
+            {
+                "node": "lamport",
+                "cpuReqp": 10.0,
+                "memUtil": 66.66666666666667,
+                "memReqp": 6.0,
+                "podname": "sonicbvae",
+                "cpuReq": 4.0,
+                "memReq": 16.0,
+                "cpuUtil": 22.275,
+                "gpuMem": {
+                    "3": 10783.0
+                },
+                "gpuUsed": [
+                    3
+                ]
+            },
+            {
+                "node": "panini",
+                "cpuReqp": 12.0,
+                "memUtil": 12.799999999999999,
+                "memReqp": 25.0,
+                "podname": "sonicdarla",
+                "cpuReq": 2.0,
+                "memReq": 16.0,
+                "cpuUtil": 69.05,
+                "gpuMem": {
+                    "0": 10951.0
+                },
+                "gpuUsed": [
+                    0
                 ]
             }
         ],
@@ -492,9 +473,9 @@
                 "podname": "ssdcaffemapeval",
                 "cpuReq": 4.0,
                 "memReq": 32.0,
-                "cpuUtil": 73.0,
+                "cpuUtil": 75.25,
                 "gpuMem": {
-                    "0": 693.0
+                    "0": 720.0
                 },
                 "gpuUsed": [
                     0
@@ -504,13 +485,13 @@
         "rahulr-namespace": [
             {
                 "node": "erdos",
-                "cpuReqp": 12.0,
-                "memUtil": 138.18181818181816,
-                "memReqp": 11.0,
-                "podname": "opensimddpg",
-                "cpuReq": 4.0,
-                "memReq": 30.0,
-                "cpuUtil": 99.65000000000002,
+                "cpuReqp": 25.0,
+                "memUtil": 6.666666666666667,
+                "memReqp": 12.0,
+                "podname": "opensimppo",
+                "cpuReq": 8.0,
+                "memReq": 32.0,
+                "cpuUtil": 47.224999999999994,
                 "gpuMem": {},
                 "gpuUsed": []
             }

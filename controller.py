@@ -122,9 +122,9 @@ def initiate():
                 curjo["gpuUsed"] = procData[jo]["gpuUsed"]
                 curjo["gpuMem"] = procData[jo]["gpuMem"]
                 curjo["cpuUtil"] = procData[jo]["cpuUtil"] * \
-                    (1.0 / jov["cpuReq"])
+                    (1.0 / max(1, jov["cpuReq"]))
                 curjo["memUtil"] = procData[jo]["memUtil"] * \
-                    (100.0 / jov["memReqp"])
+                    (100.0 / max(1, jov["memReqp"]))
             else:
                 curjo["gpuUsed"] = -404
                 curjo["gpuMem"] = -404
