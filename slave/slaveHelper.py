@@ -34,7 +34,8 @@ def getGpuProc():
     while ("-------------" not in li) and ("No running processes" not in li) and procNum < ln:
 
         li = li.split()
-        gpuDat.append([li[1], li[2], li[5]])
+        if li[3].strip() != 'G':
+            gpuDat.append([li[1], li[2], li[5]])
         procNum += 1
         li = gpuOut[procNum]
 
