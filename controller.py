@@ -90,6 +90,7 @@ def initiate():
             jsonStr = str(r.content, 'utf-8')
             returnDat = json.loads(jsonStr)
         except:
+            print(node[0] + " : Endpoint failing")
             continue
 
         nodeDat = returnDat["n"]
