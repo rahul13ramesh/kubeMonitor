@@ -75,6 +75,6 @@ def getPodInfo(pods):
             cont = podDesc.strip().split("//")[1]
             containers.append((cont, (po, ns)))
         else:
+            continue
             print(podDesc)
-            assert(1==2)
     return containers
