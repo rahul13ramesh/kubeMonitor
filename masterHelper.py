@@ -44,9 +44,17 @@ def getNodeInfo(nodes):
             if "Addresses:" in li:
                 curList.append(nodeDesc[pos + 1].strip().split()[1])
             if "Capacity:" in li:
-                curList.append(nodeDesc[pos + 1].strip().split()[1])
-                curList.append(nodeDesc[pos + 2].strip().split()[1])
-                curList.append(nodeDesc[pos + 3].strip().split()[1])
+                tmpPos = pos
+                li = nodeDesc[tmpPos]
+                while "Allocatable" not in li:
+                    if "nvidia-gpu" in li:
+                        curList.append(li.strip().split()[1])
+                    if "cpu" in li:
+                        curList.append(li.strip().split()[1])
+                    if "memory" in li:
+                        curList.append(li.strip().split()[1])
+                    tmpPos += 1
+                    li = nodeDesc[tmpPos]
             if "Namespace" in li:
                 tmpPos = pos + 2
                 tmpLi = nodeDesc[tmpPos]
@@ -75,6 +83,6 @@ def getPodInfo(pods):
             cont = podDesc.strip().split("//")[1]
             containers.append((cont, (po, ns)))
         else:
+            continue
             print(podDesc)
-            assert(1==2)
     return containers
