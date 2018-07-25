@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title> Kube-Monitor | Tracking CPU/GPU usage </title>
+		<!--Import Google Icon Font-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<!--Import materialize.css-->
+		<link type="text/css" rel="stylesheet" href="static/css/materialize.min.css"  media="screen,projection"/>
+		<link type="text/css" rel="stylesheet" href="static/css/styles2.css"  media="screen,projection"/>
+		<!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<style>
+		.flex {
+		  display: flex;
+		  flex-direction: column;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<nav class="blue darken-3 color-primary">
+			<div class="nav-wrapper">
+				<a href="#!" style="padding:1px 2px" class="brand-logo">Kube Monitor</a>
+				<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="sass.html">Sass</a></li>
+					<li><a href="badges.html">Components</a></li>
+					<li><a href="collapsible.html">JavaScript</a></li>
+				</ul>
+			</div>
+		</nav>  
+
+		<ul class="sidenav blue darken-3 -white" id="mobile-demo">
+			<li><a class="white-text" href="/">Overview</a></li>
+			<li><a class="white-text" href="node">Pod Details</a></li>
+			<li><a class="white-text active" href="#">Node Details</a></li>
+		</ul>
+
+		<div class="container">
+			<div class="row"></div>
+			<div class="row"></div>
+			{% for nd in sorted(nodeData.keys()) %}
+				<div class="row">
+					<div class="col s12 ">
+						<h4> {{ nd  }} </h4>
+					</div>
+					<div class="col s3 ">
+						<div class="progress">
+							<div class="determinate blue darken-3" style="width: {{ gpuUsg[nd] }}%"></div>
+						</div>
+						<h6> GPU Memory Utilization </h6>
+					</div>
+					<div class="col offset-s1 s3 ">
+						<div class="progress">
+							<div class="determinate blue darken-3" style="width:
+								{{ nodeData[nd]['cpuUsage']  }}%"></div>
+						</div>
+						<h6> CPU Utilization </h6>
+					</div>
+					<div class="col offset-s1 s3 ">
+						<div class="progress">
+							<div class="determinate blue darken-3" style="width:
+							{{ nodeData[nd]['memUsage'] }}%"></div>
+						</div>
+						<h6> Memory Utilization </h6>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col s12 ">
+						<div class="card green darken-2">
+							<div class="card-content white-text">
+								<span class="card-title">Requests</span>
+								<table class="responsive-table" >
+									<tr class="green darken-4">
+										<th>Metric</th>
+										<th>Request</th>
+										<th>Total</th>
+									</tr>
+									<tr>
+										<td>CPUs</td>
+										<td>{{nodeData[nd]["reqCpu"]}}</td>
+										<td>{{nodeData[nd]["maxCpu"]}}</td>
+									</tr>
+									<tr>
+										<td>Memory</td>
+										<td>{{ nodeData[nd]["reqMem"] }}</td>
+										<td>{{nodeData[nd]["maxMem"] }}</td>
+									</tr>
+									<tr>
+										<td>GPUs</td>
+										<td>{{ len(nodeData[nd]["gpuUse"]) }}</td>
+										<td>{{ nodeData[nd]["totGpu"] }}</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+					<div class="col s12">
+						<div class="card card-medium blue darken-4">
+							<div class="card-content white-text">
+								<span class="card-title">Usage</span>
+								<table class="responsive-table">
+									<tr class="grey darken-4">
+										<th>GPU ID</th>
+										<th>Type</th>
+										<th>Utilization</th>
+										<th>Mem. Used</th>
+										<th>Mem. Total</th>
+									</tr>
+									{% for j in range(numGpus[nd]) %}
+									<tr>
+										{% if j in nodeData[nd]["gpuUse"] %}
+										<td class="red-text"> {{str(j)}}</td>
+										{% else %}
+										<td class="green-text">{{str(j)}}</td>
+										{% endif %}
+
+										<td> {{ nodeData[nd]["gpu" + str(j)]["name"] }} </td>
+										<td> {{ nodeData[nd]["gpu" + str(j)]["util"] }} </td>
+										<td> {{ nodeData[nd]["gpu" + str(j)]["memUsed"] }} </td>
+										<td> {{ nodeData[nd]["gpu" +
+											str(j)]["memTot"] }} </td>
+									</tr>
+									{% endfor %}
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+			<div class="row"></div>
+		</div>
+		<footer class="page-footer">
+			<div class="footer-copyright">
+				<div class="">
+				</div>
+			</div>
+		</footer>
+
+		<!--JavaScript at end of body for optimized loading-->
+		<script type="text/javascript" src="static/js/materialize.min.js"></script>
+		<script>
+			  document.addEventListener('DOMContentLoaded', function() {
+				var elems = document.querySelectorAll('.sidenav');
+				var instances = M.Sidenav.init(elems, {
+					  menuWidth: 300, // Default is 300
+					  edge: 'left', // Choose the horizontal origin
+					  closeOnClick: false, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+					  draggable: true // Choose whether you can drag to open on touch screens
+					});
+			  });
+		</script>
+	</body>
+</html>

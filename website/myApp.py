@@ -1,18 +1,24 @@
 from flask import Flask, render_template
 import json
+from flask_mobility import Mobility
+from flask_mobility.decorators import mobile_template
+
 app = Flask(__name__)
+Mobility(app)
 
 
 @app.route('/')
-def index():
+@mobile_template('{mobile/}summary.html')
+def index(template):
     f = open("../mainDat/summary.json", "r")
     summ = json.load(f)
     f.close()
-    return render_template("summary.html", data=summ['pods'])
+    return render_template(template, data=summ['pods'])
 
 
 @app.route('/node')
-def node():
+@mobile_template('{mobile/}nodes.html')
+def node(template):
     f = open("../mainDat/aggregated.json", "r")
     summ = json.load(f)
     f.close()
@@ -39,13 +45,14 @@ def node():
             gpuUsg[n] = 0
         else:
             gpuUsg[n] = int(float(nume) / denom * 100)
-    return render_template("nodes.html", data=summ['pods'], nodeData=nd,
+    return render_template(template, data=summ['pods'], nodeData=nd,
                            gpuUsg=gpuUsg, numGpus=numGpus, str=str,
                            sorted=sorted, len=len)
 
 
 @app.route('/pod')
-def pod():
+@mobile_template('{mobile/}pods.html')
+def pod(template):
     f = open("../mainDat/aggregated.json", "r")
     summ = json.load(f)
     f.close()
@@ -67,9 +74,9 @@ def pod():
                 pd[p][count]["avgGpuUsg"] = int(float(nume*100)/denom)
             count += 1
 
-    return render_template("pods.html", data=pd, sorted=sorted, len=len,
+    return render_template(template, data=pd, sorted=sorted, len=len,
                            int=int, str=str, nodeDat=nd)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
