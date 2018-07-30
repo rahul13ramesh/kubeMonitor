@@ -10,6 +10,9 @@ Mobility(app)
 @app.route('/')
 @mobile_template('{mobile/}summary.html')
 def index(template):
+    """
+    Home page containing summaries
+    """
     f = open("../mainDat/summary.json", "r")
     summ = json.load(f)
     f.close()
@@ -19,6 +22,9 @@ def index(template):
 @app.route('/node')
 @mobile_template('{mobile/}nodes.html')
 def node(template):
+    """
+    Page containing node details displayed as table
+    """
     f = open("../mainDat/aggregated.json", "r")
     summ = json.load(f)
     f.close()
@@ -33,6 +39,7 @@ def node(template):
         nd[n]["reqMem"] = str(int(float(nd[n]["reqMem"])))
         nd[n]["maxCpu"] = str(int(float(nd[n]["maxCpu"])))
         nd[n]["reqCpu"] = str(int(float(nd[n]["reqCpu"])))
+        #  Calculate average GPU usage
         for l in range(int(nd[n]["totGpu"])):
             cnt += 1
             nume += nd[n]["gpu" + str(l)]["memUsed"]
@@ -53,6 +60,9 @@ def node(template):
 @app.route('/pod')
 @mobile_template('{mobile/}pods.html')
 def pod(template):
+    """
+    Details about every individual pod(usage and requests)
+    """
     f = open("../mainDat/aggregated.json", "r")
     summ = json.load(f)
     f.close()
@@ -65,6 +75,7 @@ def pod(template):
             node = job['node']
             nume = 0
             denom = 0
+            #  Calculate average GPU usage
             for gp in job['gpuUsed']:
                 denom += nd[node]['gpu' + str(gp)]['memTot']
                 nume += job['gpuMem'][str(gp)]

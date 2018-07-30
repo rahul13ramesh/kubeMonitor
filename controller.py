@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import portalocker
 import re
 import json
@@ -12,6 +13,11 @@ from masterHelper import getNodeInfo, getPodInfo
 
 
 def initiate():
+    """
+    * Iterate over nodes
+    * In each loop run, send a POST
+      request obtaining pod usage details on that node
+    """
 
     #  Get nodes, namespaces and pods
     dat, ns, pods = getNamespaces()
@@ -25,11 +31,13 @@ def initiate():
     integratedData["nodes"] = {}
     integratedData["pods"] = {}
     integratedData["time"] = datetime.datetime.now(
-    ).strftime("%I %M %S %p %D %Y")
+    ).strftime("%I %M %S %p %D %Y")  # Add time stamp
 
-    #  Iterate over Ready nodes
+    #  Iterate over nodes
+    #  Node variable only contains 'Ready' nodes
     for node in nodeInf:
 
+        #  Maximum available GPU, CPU and RAM of node
         gpuMax = float(node[2])
         cpuMax = float(node[3])
         memMax = float(node[4][:-2]) / (1024 * 1024.0)
@@ -37,7 +45,7 @@ def initiate():
         reqInfo = node[6]
         reqInfo = reqInfo.strip().split()
 
-        #  Get the number of requests
+        #  Get the number of requests from all users
         cpuNum = float(reqInfo[2])
         cpuPerc = float(re.findall(r'\d+', reqInfo[3])[0])
         memNum = float(re.findall(r'\d+', reqInfo[4])[0])
@@ -55,6 +63,7 @@ def initiate():
 
         jobs = node[5]
 
+        #  Get information about each job's request
         nodeCont = []
         curJsonJobs = {}
         for j in jobs:
@@ -75,6 +84,7 @@ def initiate():
 
         numNodes = len(nodeCont)
 
+        #  Get list of docker ID's of pods
         dockSend = []
         for i in range(numNodes):
             dockSend.append(nodeCont[i][0])
@@ -82,6 +92,7 @@ def initiate():
         # If end-point works
         try:
             #  Send a post request
+            #  Send docker ID's to get CPU, Mem, Gpu usage
             sendData = {'numIds': numNodes, 'id': dockSend}
             sendUrl = "http://" + node[1] + ":6277/nodeInfo"
             sendFiles = [
@@ -90,9 +101,12 @@ def initiate():
             jsonStr = str(r.content, 'utf-8')
             returnDat = json.loads(jsonStr)
         except:
+            #  Most likely cause of failure is Nvidia-smi crashing
+            #  Check the node if this line is printed in logs
             print(node[0] + " : Endpoint failing")
             continue
 
+        #  Store node and pod info
         nodeDat = returnDat["n"]
         procData = returnDat["p"]
 
@@ -106,11 +120,13 @@ def initiate():
 
         integratedData["nodes"][node[0]] = nodeI
 
+        #  Iterate over all jobs running in current node in for loop
         for jo in curJson["jobs"]:
             jov = curJson["jobs"][jo]
 
             if jov["namespace"] not in integratedData["pods"]:
                 integratedData["pods"][jov["namespace"]] = []
+            #  Get jobs details(like request)
             curjo = {
                 "podname": jov["podname"],
                 "node": jov["node"],
@@ -119,6 +135,7 @@ def initiate():
                 "memReq": jov["memReq"],
                 "memReqp": jov["memReqp"],
             }
+            #  Get utilization details
             if jo in procData:
                 curjo["gpuUsed"] = procData[jo]["gpuUsed"]
                 curjo["gpuMem"] = procData[jo]["gpuMem"]

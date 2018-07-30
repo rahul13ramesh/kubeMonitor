@@ -2,6 +2,9 @@ import os
 
 
 def getMemUsage():
+    """
+    Get the nodes used/total memory
+    """
     memOut = os.popen('free -g').read()
     x = memOut.split("\n")[1].split()
     memUsed, memTot = float(x[2]), float(x[1])
@@ -10,6 +13,10 @@ def getMemUsage():
 
 
 def getCpuUsage():
+    """
+    Get the CPU's usage in node
+    run -n 3 for top to get accurate usage(current usage)
+    """
     cpuOut = os.popen("top -b -n 3 -d 1 | grep Cpu").read()
     cpuUsage = float(cpuOut.strip().split("\n")[2].split()[1])
 
@@ -17,12 +24,16 @@ def getCpuUsage():
 
 
 def getGpuProc():
+    """
+    Get GPU details
+    """
     gpuOut = os.popen("nvidia-smi").read()
     gpuOut = gpuOut.split("\n")
 
     gpuDat = []
     procNum = 0
 
+    #  Go to line with PID details
     for li in gpuOut:
         if "PID" in li:
             break
@@ -31,9 +42,11 @@ def getGpuProc():
     ln = len(gpuOut)
     procNum += 2
     li = gpuOut[procNum]
+    #  Iterate over all processes
     while ("-------------" not in li) and ("No running processes" not in li) and procNum < ln:
 
         li = li.split()
+        #  If not a graphics process append GPU data
         if li[3].strip() != 'G':
             gpuDat.append([li[1], li[2], li[5]])
         procNum += 1
@@ -43,6 +56,9 @@ def getGpuProc():
 
 
 def getGpuUsage():
+    """
+    Query for gpu stats about node GPUs
+    """
     gpuOut2 = os.popen(
         "nvidia-smi --query-gpu=utilization.gpu,memory.total,memory.used,gpu_name --format=csv").read()
 
