@@ -12,6 +12,12 @@ log.setLevel(logging.ERROR)
 
 @app.route('/nodeInfo', methods=['POST'])
 def sendDat():
+    """
+    * A API endpoint that accepts POST requests
+    * The POST request must contain list of dockerIDs
+    * End point returns the node resource usage, and usage of individual pods
+      running in node
+    """
     posted_data = json.load(request.files['datas'])
     numIds = posted_data['numIds']
 

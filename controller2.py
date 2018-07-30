@@ -10,6 +10,9 @@ from masterHelper import getNamespaces, getNodes
 
 
 def getStat():
+    """
+    Get overview stats and dump to file
+    """
 
     overviewDat = {"pods": []}
     #  Get namespaces, pod data and pods
