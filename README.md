@@ -27,3 +27,4 @@ Master Setup
 * Some screenshots:
 
 ![Alt text](assets/mobile1.png?raw=true "Mobile Screenshot 1")
+![Alt text](assets/desk1.png?raw=true "Desktop Screenshot 1")
