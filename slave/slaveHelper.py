@@ -47,7 +47,7 @@ def getGpuProc():
 
         li = li.split()
         #  If not a graphics process append GPU data
-        if li[3].strip() != 'G':
+        if len(li) >= 6 and li[3].strip() != 'G':
             gpuDat.append([li[1], li[2], li[5]])
         procNum += 1
         li = gpuOut[procNum]

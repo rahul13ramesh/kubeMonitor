@@ -100,11 +100,18 @@ def writeFile(cpuMem, gpus, gpuDat, cpu, mem, idList2):
 
     for i in range(len(gpuDat)):
         gpuInfo = gpuDat[i]
-        nodeDat["gpu" + str(i)] = {
-            "name": gpuInfo[0],
-            "util": float(gpuInfo[1].split()[0]),
-            "memTot": float(gpuInfo[2].split()[0]),
-            "memUsed": float(gpuInfo[3].split()[0])}
+        try:
+            nodeDat["gpu" + str(i)] = {
+                "name": gpuInfo[0],
+                "util": float(gpuInfo[1].split()[0]),
+                "memTot": float(gpuInfo[2].split()[0]),
+                "memUsed": float(gpuInfo[3].split()[0])}
+        except:
+            nodeDat["gpu" + str(i)] = {
+                "name": gpuInfo[0],
+                "util": 0,
+                "memTot": 0,
+                "memUsed": 0}
 
     procDat = {}
     for p, idL in zip(cpuMem, idList2):
