@@ -30,6 +30,9 @@ def getGpuProc():
     gpuOut = os.popen("nvidia-smi").read()
     gpuOut = gpuOut.split("\n")
 
+    if "not found" in gpuOut[0]:
+        return []
+
     gpuDat = []
     procNum = 0
 
@@ -63,6 +66,10 @@ def getGpuUsage():
         "nvidia-smi --query-gpu=utilization.gpu,memory.total,memory.used,gpu_name --format=csv").read()
 
     gpuUsageDat = []
+
+    if "not found" in gpuOut2[0]:
+        return []
+
     gpuOut2 = gpuOut2.split("\n")
     for i in range(1, len(gpuOut2)):
         li = gpuOut2[i]
