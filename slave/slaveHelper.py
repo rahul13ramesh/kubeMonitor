@@ -30,8 +30,7 @@ def getGpuProc():
     gpuOut = os.popen("nvidia-smi").read()
     gpuOut = gpuOut.split("\n")
 
-    
-    if "not found" in gpuOut[0]:
+    if len(gpuOut) == 1:
         return []
 
     gpuDat = []
@@ -68,7 +67,7 @@ def getGpuUsage():
 
     gpuUsageDat = []
 
-    if "not found" in gpuOut2:
+    if len(gpuOut2) <= 1:
         return []
 
     gpuOut2 = gpuOut2.split("\n")
