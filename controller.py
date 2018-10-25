@@ -37,6 +37,7 @@ def initiate():
     #  Node variable only contains 'Ready' nodes
     for node in nodeInf:
 
+	print(node)
         #  Maximum available GPU, CPU and RAM of node
         gpuMax = 0
         cpuMax = float(node[3])
@@ -46,6 +47,8 @@ def initiate():
         reqInfo = reqInfo.strip().split()
 
         #  Get the number of requests from all users
+	del reqInfo[5]
+	del reqInfo[0]
         cpuNum = float(reqInfo[2])
         cpuPerc = float(re.findall(r'\d+', reqInfo[3])[0])
         memNum = float(re.findall(r'\d+', reqInfo[4])[0])

@@ -63,6 +63,7 @@ def getNodeInfo(nodes):
                 li = nodeDesc[tmpPos]
                 while "Allocatable" not in li:
                     if "cpu" in li:
+			curList.append(-404)
                         curList.append(li.strip().split()[1])
                     if "memory" in li:
                         curList.append(li.strip().split()[1])
@@ -82,7 +83,7 @@ def getNodeInfo(nodes):
                 curList.append(nodeJobs)
             #  Get percentage of resources allocated(wrt total capacity of node)
             if "Allocated resources" in li:
-                curList.append(nodeDesc[pos + 4])
+                curList.append(nodeDesc[pos + 4] + nodeDesc[pos+5])
             pos += 1
         nodeData.append(list(curList))
     return nodeData
