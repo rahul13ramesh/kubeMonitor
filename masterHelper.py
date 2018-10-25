@@ -62,8 +62,6 @@ def getNodeInfo(nodes):
                 tmpPos = pos
                 li = nodeDesc[tmpPos]
                 while "Allocatable" not in li:
-                    if "nvidia-gpu" in li:
-                        curList.append(li.strip().split()[1])
                     if "cpu" in li:
                         curList.append(li.strip().split()[1])
                     if "memory" in li:

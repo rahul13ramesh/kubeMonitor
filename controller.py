@@ -38,7 +38,7 @@ def initiate():
     for node in nodeInf:
 
         #  Maximum available GPU, CPU and RAM of node
-        gpuMax = float(node[2])
+        gpuMax = 0
         cpuMax = float(node[3])
         memMax = float(node[4][:-2]) / (1024 * 1024.0)
 
