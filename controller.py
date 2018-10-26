@@ -101,7 +101,7 @@ def initiate():
             sendFiles = [
                 ('datas', ('datas', json.dumps(sendData), 'application/json'))]
             r = requests.post(sendUrl, files=sendFiles, timeout=60)
-            jsonStr = str(r.content, 'utf-8')
+            jsonStr = r.content
             returnDat = json.loads(jsonStr)
         except:
             #  Most likely cause of failure is Nvidia-smi crashing
