@@ -1,0 +1,8 @@
+Flask==1.0.2
+Flask-Mobility==0.1.1
+gunicorn==19.9.0
+portalocker==1.2.1
+request==1.0.2
+requests==2.19.1
+urllib3==1.23
+Werkzeug==0.14.1
