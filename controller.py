@@ -29,7 +29,6 @@ def initiate():
 
     #  Iterate over Ready nodes
     for node in nodeInf:
-
         gpuMax = float(node[2])
         cpuMax = float(node[3])
         memMax = float(node[4][:-2]) / (1024 * 1024.0)
@@ -38,7 +37,10 @@ def initiate():
         reqInfo = reqInfo.strip().split()
 
         #  Get the number of requests
-        cpuNum = float(reqInfo[2])
+        if 'm' in reqInfo[2]:
+            cpuNum = int(int(re.findall(r'\d+', reqInfo[2])[0])/1000)
+        else:
+            cpuNum = float(reqInfo[2])
         cpuPerc = float(re.findall(r'\d+', reqInfo[3])[0])
         memNum = float(re.findall(r'\d+', reqInfo[4])[0])
         memPerc = float(re.findall(r'\d+', reqInfo[5])[0])

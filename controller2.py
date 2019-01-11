@@ -17,12 +17,16 @@ def getStat():
 
     #  Write into json
     for dpt in dat:
-        tmpJ = {
-            "namespace": dpt[0][:-10],
-            "podName": dpt[1],
-            "status": dpt[2],
-            "time": dpt[3]}
-        overviewDat["pods"].append(tmpJ)
+        number = None
+        numb = re.findall(r'\d+', dpt[3])
+        if len(numb) >= 1:
+                number = int(numb[0])
+        if not(("Running" not in dpt[2]) and ("d" in dpt[3]) and (number is not None) and (number > 5)):
+                tmpJ = {"namespace": dpt[0][:-10],
+                    "podName": dpt[1],
+                    "status": dpt[2],
+                    "time": dpt[3]}
+                overviewDat["pods"].append(tmpJ)
 
     #  Write json to file
     f = open("mainDat/summary.json", "w")
