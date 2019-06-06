@@ -2,7 +2,7 @@ pip install --user flask
 pip install --user portalocker
 cd slave
 varc=($(ps -u iitm | grep python | wc -l))
-if [ $varc -ge 1 ]; then
+if [ $varc -le 0 ]; then
 	nohup python -u api.py >err.log &
 fi
 cd ..
